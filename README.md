@@ -17,9 +17,16 @@
     - Multi-Camera Processing:
         - The application provides 6 tabs.
         - The first tab displays all cameras simultaneously (`All Camera`).
-        - The next four tabs are designed for working with each camera individually.
-        - The last tab is used for parameter settings.
+
         <img src="docs/docs/images/all.jpg" alt="Project Logo" width="800">
+
+        - The next four tabs are designed for working with each camera individually.
+
+        <img src="docs/docs/images/tab.png" alt="Project Logo" width="800">
+        
+        - The last tab is used for parameter `settings`.
+
+        <img src="docs/docs/images/settings.png" alt="Project Logo" width="800">
 
 
     - Load Optimization:
