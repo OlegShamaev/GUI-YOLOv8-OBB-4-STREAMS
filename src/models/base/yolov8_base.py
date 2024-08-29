@@ -1,10 +1,5 @@
-import numpy as np
-import os
-import cv2 as cv
 from collections import namedtuple
 import abc
-from src.utils.general import path_leaf
-import time
 
 
 class ModelError(Exception):

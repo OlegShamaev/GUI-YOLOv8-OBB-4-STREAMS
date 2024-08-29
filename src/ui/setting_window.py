@@ -8,10 +8,6 @@ from src.utils.config import config
 
 import sys
 import cv2 as cv
-import ssl
-import urllib
-import yt_dlp
-from pytube import YouTube, exceptions
 
 from PyQt6.QtCore import pyqtSignal, Qt
 from PyQt6 import QtWidgets, QtGui

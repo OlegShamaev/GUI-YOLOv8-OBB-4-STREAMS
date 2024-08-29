@@ -69,7 +69,7 @@
 
 ```
 ├── LICENSE            <- Open-source license if one is chosen
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
+├── Makefile           <- Makefile with convenience commands like `make db' and other
 ├── README.md          <- The top-level README for developers using this project.
 ├── data
 │   ├── db_image       <- Data Base images.
@@ -81,18 +81,23 @@
 │
 ├── logs               <- Logs
 |
-├── models             
+├── models             <- Classes and models
 |    └──weights        <- Trained and serialized models, model predictions, or model summaries
 │
 ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
 │                         the creator's initials, and a short `-` delimited description, e.g.
 │                         `1.0-jqp-initial-data-exploration`.
 │
-├── pyproject.toml     <- Project configuration file with package metadata for vtormet_cv
+├── pyproject.toml     <- Project configuration file with package metadata for project
 │                         and configuration for tools like black
 │
 ├── src                <- Modules
-│
+│   ├── data_type
+|   ├── models
+|   ├── qt
+|   ├── ui
+|   └── utils
+|
 ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
 │   └── figures        <- Generated graphics and figures to be used in reporting
 │

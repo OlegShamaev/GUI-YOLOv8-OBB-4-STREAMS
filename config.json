@@ -11,13 +11,30 @@
         "cam_1": {
             "tab_out": 0,
             "yolo_name": "yolov8n",
-            "source_in": "file",
-            "source_value": "/Users/admin/Project/CV-Project/Vtormet-4cam/data/video/Full.mp4",
+            "source_in": "camera",
+            "source_value": 0,
             "confidence_threshold": 0.3,
             "iou_threshold": 0.45,
             "frame_interval": 0,
             "in_out_area": "IN",
-            "display_area": null
+            "display_area": {
+                "top_left": [
+                    0.16793893129770993,
+                    0.04046997389033943
+                ],
+                "top_right": [
+                    0.861323155216285,
+                    0.04046997389033943
+                ],
+                "bottom_right": [
+                    0.861323155216285,
+                    0.9190600522193212
+                ],
+                "bottom_left": [
+                    0.16793893129770993,
+                    0.9190600522193212
+                ]
+            }
         },
         "cam_2": {
             "tab_out": 1,

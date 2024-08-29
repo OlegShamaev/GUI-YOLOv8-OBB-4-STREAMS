@@ -1,6 +1,4 @@
 import numpy as np
-import cv2 as cv
-import math
 from src.utils.logging_config import logger
 
 

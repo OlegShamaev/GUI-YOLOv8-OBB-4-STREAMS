@@ -25,8 +25,8 @@ from src.utils.db_config import (
 )
 from src.utils.config import config
 
-DB_SAVE = config.last_state.db_save
 PREFERENCE = config.last_state.preference
+DB_SAVE = config.last_state.db_save
 
 
 class MainWindow(QMainWindow):
@@ -35,9 +35,9 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Multi-Camera AI Viewer")
         # Загрузка последней открытой вкладки
         self.tab_widget = QTabWidget()
-        self.load_last_state()
         self.start_check()
         DB_SAVE = config.last_state.db_save
+        self.load_last_state()
         self.conn_pool = create_connection_pool() if DB_SAVE == "DataBase" else None
         self.setCentralWidget(self.tab_widget)
         self.create_menu()
