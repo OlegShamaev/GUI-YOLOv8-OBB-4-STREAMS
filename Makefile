@@ -45,6 +45,14 @@ format:
 # Data Base                                                                      #
 #################################################################################
 SCRIPT_DB = src.utils.db_config
+SCRIPT_ENV = src.utils.create_env
+
+
+## Create .env file for Data Base
+.PHONY: db_env
+db_env:
+	@echo "Создание базы данных и директорий..."
+	$(PYTHON_INTERPRETER) -c "from $(SCRIPT_ENV) import create_env_file; create_env_file()"
 
 ## Create Data Base PostgreSQL
 .PHONY: db_create
@@ -56,7 +64,7 @@ db_create:
 .PHONY: folders_create
 folders_create:
 	@echo "Создание директорий..."
-	$(PYTHON_INTERPRETER) -c "from $(SCRIPT_DB) import create_database_and_folders; create_database_and_folders()"
+	$(PYTHON_INTERPRETER) -c "from $(SCRIPT_DB) import create_folders; create_folders()"
 
 ## Clear Data Base and image folders
 .PHONY: clear_db
@@ -81,6 +89,28 @@ dump_files:
 dump_db:
 	@echo "Создание DUMP Databese и изображений в архив..."
 	$(PYTHON_INTERPRETER) -c "from $(SCRIPT_DB) import create_dump_database_with_clear; create_dump_database_with_clear()"
+
+
+
+#################################################################################
+# PROJECT RULES                                                                 #
+#################################################################################
+
+## Install MkDocs
+.PHONY: install_docs
+install_docs:
+	pip install mkdocs mkdocs-material
+
+## Create site MkDocs
+.PHONY: build_docs
+build_docs:
+	mkdocs build -f ./docs/mkdocs.yml
+
+## Start site MkDocs
+.PHONY: serve_docs
+serve_docs:
+	mkdocs serve -f ./docs/mkdocs.yml
+
 
 
 #################################################################################

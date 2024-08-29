@@ -1,4 +1,19 @@
-site_name: Vtormet-CV
-# 
+site_name: Advanced Video Processing Application
 site_author: Oleg Shamaev
-# 
+
+theme:
+  name: material
+  features:
+    - search
+    - navigation.top
+
+nav:
+  - Home: index.md # Путь относительно каталога docs/
+  - Начало работы: getting-started.md
+
+
+# Путь к директории с документацией
+docs_dir: docs
+
+# Путь к директории, где будут храниться сгенерированные файлы сайта
+site_dir: site  # Путь относительно каталога docs/

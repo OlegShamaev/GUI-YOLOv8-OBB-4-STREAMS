@@ -1,5 +1,5 @@
 # Data
-/data/
+/data/*
 
 # Mac OS-specific storage files
 .DS_Store
@@ -264,6 +264,4 @@ CMakeLists.txt.user*
 *.dll
 *.exe
 
-/weights/
-/src/save/
-/models/
+/models/weights/*

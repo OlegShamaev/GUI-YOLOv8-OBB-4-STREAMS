@@ -1,6 +1,107 @@
 Getting started
 ===============
 
-This is where you describe how to get set up on a clean install, including the
-commands necessary to get the raw data (using the `sync_data_from_s3` command,
-for example), and then how to make the cleaned, final data sets.
+## `Config.json`
+
+ - backup файла в папке backup
+
+### Конфигурационный файл  
+
+
+1. preference - отображать вкладку настроек `true` или `false`
+
+
+2. db_confidence - порог уверенности выше которого идет запись в БД от `0` - `1`
+
+
+3. db_use_conf_mode - использовать для записи в БД порог уверенности установленный для детекции модели `true` или `false`
+
+
+4. db_save - запись в БД `DataBase`, в файл в формате YOLO `File`, не вести запись `Disabled`
+
+- остальные параметры изменяются программой
+
+## `Makefile` 
+
+### Список команд и их описание 
+
+- `make help` ------------> Выводит список доступных команд.
+
+
+### Install
+
+- `make create_venv` -----> Создает виртуальное окружение для изоляции зависимостей проекта.
+
+
+- `make requirements` ----> Устанавливает необходимые библиотеки из файла requirements.txt.
+
+
+### Debug
+
+- `make clear` -----------> Удаляет скомпилированные файлы Python и временные директории.
+
+
+- `make lint` ------------> Проверяет код на соответствие стилю и наличию ошибок с помощью flake8 и isort.
+
+
+### Data Base PostgreSQL
+
+
+#### Создайте  `.env` файл для подключения к БД:
+
+- `make db_env` ----------> Создание .env для подключения к БД. 
+
+'''
+
+
+    DB_USER=your-user
+
+
+    DB_PASS=your-pass
+
+
+    DB_NAME=vtormet_yolo_db
+
+
+    DB_PORT=5432
+
+
+    DB_HOST=localhost  
+'''
+
+#### Создание Базы Данных и таблиц:
+
+ - `make db_create` -------> Создает базу данных PostgreSQL, необходимые таблицы в установленной PostgreSQL и директории.
+
+
+#### Запись в файлы
+
+- `make folders_create` --> Создайте папки для записи данных в файлы  (при создании БД пропустить ).
+
+
+#### Dump БД
+
+- `make dump_db` ---------> Создает дамп базы данных и изображений в архив в папке data и таблицы БД и очищает БД.
+
+#### Dump файлов
+
+- `make dump_files` ------> Создает дамп директорий с изображениями и метками и очищает.
+
+#### Очистка
+
+- `make clear_db` --------> Очищает таблицы базы данных и удаляет изображения.
+
+
+- `make clear_folders` ---> Очищает директории с изображениями и метками.
+
+
+
+### MkDocs
+
+- `make install_docs` ----> Install MkDocs
+
+
+- `make build_docs` ------> Создает сайт MkDocs
+
+
+- `make serve_docs` ------> Запускает сайт MkDocs (документации) по адресу [ http://127.0.0.1:8000/]( http://127.0.0.1:8000/)

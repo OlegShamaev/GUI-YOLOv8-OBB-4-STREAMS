@@ -36,7 +36,6 @@ class MainWindow(QMainWindow):
         # Загрузка последней открытой вкладки
         self.tab_widget = QTabWidget()
         self.start_check()
-        DB_SAVE = config.last_state.db_save
         self.load_last_state()
         self.conn_pool = create_connection_pool() if DB_SAVE == "DataBase" else None
         self.setCentralWidget(self.tab_widget)
@@ -276,7 +275,6 @@ class MainWindow(QMainWindow):
         config.to_json()
 
     def load_last_state(self):
-
         self.state_close_connection_pool = config.last_state.state_close_connection_pool
         self.current_tab_index = config.last_state.last_opened_tab
         self.tab_widget.setCurrentIndex(self.current_tab_index)
