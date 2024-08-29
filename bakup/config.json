@@ -1,0 +1,56 @@
+{
+    "last_state": {
+        "preference": true,
+        "db_confidence": 0.9,
+        "db_use_conf_model": false,
+        "db_save": "Disabled",
+        "last_opened_tab": 0,
+        "state_close_connection_pool": true
+    },
+    "tabs": {
+        "cam_1": {
+            "tab_out": 0,
+            "yolo_name": "yolov8n",
+            "source_in": "file",
+            "source_value": "data/video/start_video.mp4",
+            "confidence_threshold": 0.3,
+            "iou_threshold": 0.45,
+            "frame_interval": 0,
+            "in_out_area": "IN",
+            "display_area": null
+        },
+        "cam_2": {
+            "tab_out": 1,
+            "yolo_name": "yolov8n",
+            "source_in": "file",
+            "source_value": null,
+            "confidence_threshold": 0.3,
+            "iou_threshold": 0.45,
+            "frame_interval": 0,
+            "in_out_area": "IN",
+            "display_area": null
+        },
+        "cam_3": {
+            "tab_out": 2,
+            "yolo_name": "yolov8n",
+            "source_in": "file",
+            "source_value": null,
+            "confidence_threshold": 0.3,
+            "iou_threshold": 0.47,
+            "frame_interval": 0,
+            "in_out_area": "IN",
+            "display_area": null
+        },
+        "cam_4": {
+            "tab_out": 3,
+            "yolo_name": "yolov8n",
+            "source_in": "file",
+            "source_value": null,
+            "confidence_threshold": 0.3,
+            "iou_threshold": 0.45,
+            "frame_interval": 0,
+            "in_out_area": "IN",
+            "display_area": null
+        }
+    }
+}
