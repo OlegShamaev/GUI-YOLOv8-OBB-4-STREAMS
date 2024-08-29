@@ -80,15 +80,19 @@ class TabWindow(QtWidgets.QMainWindow, Ui_TabWindow):
         QtWidgets.QMainWindow.resizeEvent(self, event)
 
     def stop_video(self):
-        self.ai_thread.send_ai_output.disconnect(self.display_thread.get_ai_output)
-        self.display_thread.send_displayable_frame.disconnect(self.update_display_frame)
-        self.video_processing_thread.send_frame.disconnect(self.display_thread.get_fresh_frame)
+        if self.ai_thread.isRunning():
+            self.ai_thread.send_ai_output.disconnect(self.display_thread.get_ai_output)
+            self.ai_thread.stop_process()
+        if self.display_thread.isRunning():
+            self.display_thread.send_displayable_frame.disconnect(self.update_display_frame)
+            self.display_thread.stop_display()
+        if self.video_processing_thread.isRunning():
+            self.video_processing_thread.send_frame.disconnect(self.display_thread.get_fresh_frame)
+            self.video_processing_thread.stop_capture()
 
         self.ai_thread.stop_process()
         self.ai_thread.wait()
-        self.display_thread.stop_display()
         self.display_thread.wait()
-        self.video_processing_thread.stop_capture()
         self.video_processing_thread.wait()
 
     def update_display_frame(self, showImage):

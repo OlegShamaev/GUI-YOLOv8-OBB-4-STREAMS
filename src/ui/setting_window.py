@@ -243,9 +243,12 @@ class SettingWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.buttons_states("processing")
 
     def stop_video(self):
-        self.ai_thread.stop_process()
-        self.video_processing_thread.stop_capture()
-        self.display_thread.stop_display()
+        if self.ai_thread.isRunning():
+            self.ai_thread.stop_process()
+        if self.video_processing_thread.isRunning():
+            self.video_processing_thread.stop_capture()
+        if self.display_thread.isRunning():
+            self.display_thread.stop_display()
         self.label_display.clear()
         self.buttons_states("waiting_for_setting")
 
