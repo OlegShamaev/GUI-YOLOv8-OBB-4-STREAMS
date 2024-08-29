@@ -90,6 +90,7 @@
 </a>
 
 ```
+├── main.py            <- This is the main entry point of the project.
 ├── LICENSE            <- Open-source license if one is chosen
 ├── Makefile           <- Makefile with convenience commands like `make db' and other
 ├── README.md          <- The top-level README for developers using this project.
@@ -130,7 +131,7 @@
 ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
 │                         generated with `pip freeze > requirements.txt`
 │
-├── setup.cfg          <- Configuration file for flake8
+├── setup.cfg          <- Configuration file for flake8, black, isort
 ```
 
 ---------------------------------------------------------------------------------------------------------------
