@@ -4,9 +4,11 @@
 - GUI Framework: `PyQt6`
 - Processing `Framework: Ultralytics`
 
-## DESCRIPTION:
-
 ### Description in Russian [docs/docs/index.md](docs/docs/index.md)
+### Installation and Configuration Guide [docs/docs/getting-started.md](docs/docs/getting-started.md)
+### A guide to creating a documentation site [docs/README-DOCS.md](docs/README-DOCS.md)
+
+## DESCRIPTION:
 
 - This is a powerful and flexible application developed using PyQt6, designed for real-time processing of 4 video streams using the YOLOv8-OBB model.
 
@@ -133,10 +135,5 @@
 
 ---------------------------------------------------------------------------------------------------------------
 
-
-## Installation and Configuration Guide [docs/docs/getting-started.md](docs/docs/getting-started.md)
-
-
-## A guide to creating a documentation site [docs/README-DOCS.md](docs/README-DOCS.md)
 
 
