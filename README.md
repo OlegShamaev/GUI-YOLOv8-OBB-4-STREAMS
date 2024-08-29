@@ -16,6 +16,18 @@
 
 - It is aimed at users who require accurate and fast video data processing for analytics and monitoring.
 
+    - Interface Structure:
+        - `All Cameras`: Tab for displaying all cameras simultaneously. Allows monitoring all video streams in one window.
+
+        <img src="docs/docs/images/all.jpg" alt="Project Logo" width="600">
+
+        - `Camera` 1-4: Individual tabs for each camera.
+
+         <img src="docs/docs/images/tab.png" alt="Project Logo" width="600">
+
+        - `Settings`: Video stream settings tab. Allows configuring detection, recording, and interface parameters.
+
+        <img src="docs/docs/images/settings.png" alt="Project Logo" width="600">
 
 
 - Key Features:
@@ -63,18 +75,6 @@
     - Customization for Client Needs:
         - The application has been adapted and refined to meet the specific requirements and tasks of the client.
 
-    - Interface Structure:
-        - `All Cameras`: Tab for displaying all cameras simultaneously. Allows monitoring all video streams in one window.
-
-        <img src="docs/docs/images/all.jpg" alt="Project Logo" width="600">
-
-        - `Camera` 1-4: Individual tabs for each camera.
-
-         <img src="docs/docs/images/tab.png" alt="Project Logo" width="600">
-
-        - `Settings`: Video stream settings tab. Allows configuring detection, recording, and interface parameters.
-
-        <img src="docs/docs/images/settings.png" alt="Project Logo" width="600">
 
 
 
