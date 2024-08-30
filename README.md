@@ -23,7 +23,7 @@
 
         - `Camera` 1-4: Individual tabs for each camera.
 
-         <img src="docs/docs/images/tab.png" alt="Project Logo" width="600">
+         <img src="docs/docs/images/area.png" alt="Project Logo" width="600">
 
         - `Settings`: Video stream settings tab. Allows configuring detection, recording, and interface parameters.
 
