@@ -1,4 +1,5 @@
 # Advanced Video Processing Application
+=======================================
 
 - Author: `Oleg Shamaev`
 - GUI Framework: `PyQt6`
@@ -37,6 +38,17 @@
         - The first tab displays all cameras simultaneously (`All Camera`)
         - The next four tabs are designed for working with each camera individually.        
         - The last tab is used for parameter `settings`.
+            - Supported Input Sources:
+                - [x] local files: images or videos
+                - [x] Camera
+                - [x] RTSP-Stream
+
+            - Supported Models:
+                - [x] YOLOv8n
+                - [x] YOLOv8s
+                - [x] YOLOv8m
+                - [x] YOLOv8l
+                - [x] YOLOv8x
 
     - Load Optimization:
         - Video processing is only performed on the active tab, reducing system load.
@@ -49,7 +61,7 @@
         - The application remembers the last opened tab and restores it upon restart.
 
     - Logging:
-        - The application maintains a detailed log file, enabling tracking of operations and error detection.
+        - The application maintains a detailed `log` file, enabling tracking of operations and error detection.
 
     - YOLOv8-OBB Model Integration:
         - The OBB (Oriented Bounding Box) model is connected and configured for accurate object detection.
@@ -58,15 +70,15 @@
         - The application allows setting a Frame Interval to skip frames, reducing processing load.
 
     - Result Recording:
-        - Detection results can be recorded in a PostgreSQL database or in files compatible with YOLOv6-OBB (labels.txt and images.jpeg).
+        - Detection results can be recorded in a `PostgreSQL` database or in files compatible with `YOLOv6-OBB` (labels.txt and images.jpeg).
         - Recording can be configured based on the model's confidence threshold.
 
     - Detection Management:
-        - The ability to enable or disable detection for each process on the All Cameras tab.
+        - The ability to enable or disable detection for each process on the `All Cameras` tab.
         - Supports selecting a detection area with the option to configure processing inside or outside the selected area.
 
     - Configuration File:
-        - The application uses a JSON configuration file, allowing flexible settings for:
+        - The application uses a `JSON` configuration file, allowing flexible settings for:
             - Visibility of the settings tab.
             - Method of saving results (to database or file).
             - Confidence threshold for recording.
@@ -103,9 +115,8 @@
 ├── docs               <- A default mkdocs project; see mkdocs.org for details
 │   ├── docs           <- Docs .md files
 |   ├── mkdocs.yml     <- Configuration file MkDocs
-|   ├── README-DOCS.md <- README MkDocs use
-|   ├── ui
-|   └── utils
+|   └── README-DOCS.md <- README MkDocs use
+|
 ├── logs               <- Logs
 |
 ├── models             <- Classes and models

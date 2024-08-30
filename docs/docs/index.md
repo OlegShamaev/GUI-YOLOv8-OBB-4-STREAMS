@@ -1,4 +1,5 @@
 # Advanced Video Processing Application
+
 - автор `Шамаев Олег Сергеевич`
 - фреймворк GUI - `PyQt6`
 - фреймворк обработки `Ultralytics `

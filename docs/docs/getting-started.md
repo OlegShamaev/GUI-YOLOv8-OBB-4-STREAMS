@@ -1,61 +1,91 @@
-Getting started
-===============
-
-## `Config.json`
-
- - backup файла в папке backup
-
-### Конфигурационный файл  
+# Getting started
 
 
-1. preference - отображать вкладку настроек `true` или `false`
+The model files  are saved in the  **models/weights/**  folder.
+
+the model files must be in **PyTorch** format.
+
+The model names must be **`yolov8n-obb.pt` `yolov8s-obb.pt` `yolov8m-obb.pt` `yolov8l-obb.pt` `yolov8x-obb.pt`**
+
+The `classes.txt` files are saved in the  **models/**  folder.
+
+## Configuration file
+backup file in the folder `backup/config.json`
+
+### Config.json
 
 
-2. db_confidence - порог уверенности выше которого идет запись в БД от `0` - `1`
+1. **preference** - display the settings tab `true` or `false`
 
 
-3. db_use_conf_mode - использовать для записи в БД порог уверенности установленный для детекции модели `true` или `false`
+2. **db_confidence** - the confidence threshold above which the database entry is from `0 to 1`
 
 
-4. db_save - запись в БД `DataBase`, в файл в формате YOLO `File`, не вести запись `Disabled`
+3. **db_use_conf_model** - to write to the database, use the confidence threshold set for detecting the model `true` or `false`
 
-- остальные параметры изменяются программой
 
-## `Makefile` 
+4. **db_save** - writing to the database use `DataBase` , to a file in the YOLO  format use `File`, do not record use `Disabled`
 
-### Список команд и их описание 
+- the rest of the parameters are changed by the program
 
-- `make help` ------------> Выводит список доступных команд.
+## Makefile
 
-### Запуск приложения
+### Help
+- List of commands and their description 
 
-- `make run` --------------> Запуск приложения (предварительно настройте и инсталлируйте среду)
-
+```shell
+make help
+```
 
 ### Install
+- Set up python interpreter environment
 
-- `make create_venv` -----> Создает виртуальное окружение для изоляции зависимостей проекта.
+```shell
+make create_venv
+```
 
+- Install required packages with pip
 
-- `make requirements` ----> Устанавливает необходимые библиотеки из файла requirements.txt.
+```shell
+make requirements
+```
 
+### Start
+- Launching the application
+
+```shell
+make run
+```
 
 ### Debug
+- Deletes compiled Python files and temporary directories.
 
-- `make clear` -----------> Удаляет скомпилированные файлы Python и временные директории.
+```shell
+make clear
+```
+
+- Checks the code for compliance with the style and the presence of errors using flake8 and isort.
+
+```shell
+make lint
+```
 
 
-- `make lint` ------------> Проверяет код на соответствие стилю и наличию ошибок с помощью flake8 и isort.
+### Data Base 
+Our application uses a **PostgreSQL** database by default. To switch to a different database, simply configure the **src/utils/db_config.py** file.
 
 
-### Data Base PostgreSQL
+#### Configuration
 
+- Create an .env file to securely store your database credentials:
 
-#### Создайте  `.env` файл для подключения к БД:
+```shell
+make db_env
+```
 
-- `make db_env` ----------> Создание .env для подключения к БД. 
+- Variables of the **env** file
 
-'''
+```shell
 
 
     DB_USER=your-user
@@ -71,41 +101,68 @@ Getting started
 
 
     DB_HOST=localhost  
-'''
+```
 
-#### Создание Базы Данных и таблиц:
+#### Creating
+- Creating a database and tables for recording detection results:
 
- - `make db_create` -------> Создает базу данных PostgreSQL, необходимые таблицы в установленной PostgreSQL и директории.
-
-
-#### Запись в файлы
-
-- `make folders_create` --> Создайте папки для записи данных в файлы  (при создании БД пропустить ).
+```shell
+make db_create
+```
 
 
-#### Dump БД
+- Creating directories to write detection results to files
 
-- `make dump_db` ---------> Создает дамп базы данных и изображений в архив в папке data и таблицы БД и очищает БД.
+```shell
+make folders_create
+```
+#### Dump
 
-#### Dump файлов
+- Data Base
+Creates a dump of the database and images into an archive in the data folder and database tables and cleans up the database.
 
-- `make dump_files` ------> Создает дамп директорий с изображениями и метками и очищает.
+```shell
+make dump_db
+```
 
-#### Очистка
+- Files
+Creates a dump of directories with images and labels and cleans them
 
-- `make clear_db` --------> Очищает таблицы базы данных и удаляет изображения.
+```shell
+make dump_files
+```
 
+#### Clean
+- Clears database tables and deletes images.
 
-- `make clear_folders` ---> Очищает директории с изображениями и метками.
+```shell
+make clear_db
+```
+
+- Clears directories with images and labels.
+
+```shell
+make clear_folders
+```
 
 
 
 ### MkDocs
+#### Install
 
-- `make install_docs` ----> Install MkDocs
+```shell
+make install_docs
+```
+#### Create site
+MkDocs is a static site generator that creates a website from Markdown files.
 
+```shell
+make build_docs
+```
 
-- `make build_docs` ------> Создает сайт MkDocs
+#### Start site
+MkDocs launches your documentation site at [ http://127.0.0.1:8000/]( http://127.0.0.1:8000/)
 
-
-- `make serve_docs` ------> Запускает сайт MkDocs (документации) по адресу [ http://127.0.0.1:8000/]( http://127.0.0.1:8000/)
+```shell
+make serve_docs
+```
