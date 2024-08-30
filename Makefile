@@ -86,7 +86,7 @@ clear_db:
 ## Clear folders image and labels
 .PHONY: clear_folders
 clear_folders:
-	@echo "Создание директорий..."
+	@echo "Очистка директорий..."
 	$(PYTHON_INTERPRETER) -c "from $(SCRIPT_DB) import clear_folder_images_and_labels; clear_folder_images_and_labels()"
 
 ## Create DUMP Files image and labels

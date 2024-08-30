@@ -90,7 +90,6 @@ class TabWindow(QtWidgets.QMainWindow, Ui_TabWindow):
             self.video_processing_thread.send_frame.disconnect(self.display_thread.get_fresh_frame)
             self.video_processing_thread.stop_capture()
 
-        self.ai_thread.stop_process()
         self.ai_thread.wait()
         self.display_thread.wait()
         self.video_processing_thread.wait()
