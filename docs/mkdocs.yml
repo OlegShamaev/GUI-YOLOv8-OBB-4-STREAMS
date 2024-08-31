@@ -8,8 +8,9 @@ theme:
     - navigation.top
 
 nav:
-  - Home: index.md # Путь относительно каталога docs/
-  - Начало работы: getting-started.md
+  - Home: index.md 
+  - Getting Started: getting-started.md
+  - Russian: russian.md
 
 
 # Путь к директории с документацией
