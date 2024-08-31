@@ -1,14 +1,16 @@
 # Advanced Video Processing Application
+_______________________________________
 
 - автор `Шамаев Олег Сергеевич`
+- email `MlOpsEngineer@yandex.ru`
 - фреймворк GUI - `PyQt6`
 - фреймворк обработки `Ultralytics `
-
+_______________________________________
 ## ОПИСАНИЕ:
 
 
 - это мощное и гибкое приложение, разработанное с использованием PyQt6, предназначенное для обработки видео потоков в реальном времени с использованием модели YOLOv8-OBB. 
-- Приложение поддерживает обработку видео с камер, видеофайлов и потоков с YouTube, обеспечивая высокоэффективную детекцию объектов и сохранение результатов. 
+- Приложение поддерживает обработку видео с камер, видео файлов и потоков с YouTube, обеспечивая высокоэффективную детекцию объектов и сохранение результатов. 
 - Оно ориентировано на пользователей, которым требуется точная и быстрая обработка видеоданных для аналитики и мониторинга.
 
 - Основные возможности:
@@ -82,10 +84,10 @@
 │   ├── labels         <- Labels.
 │   └── video          <- start video and other video.
 │
-├── docs               <- A default mkdocs project; see mkdocs.org for details
-│   ├── docs           <- Docs .md files
-|   ├── mkdocs.yml     <- Configuration file MkDocs
-|   └── README-DOCS.md <- README MkDocs use
+├── docs               <- A default mkdocs project; see mkdocs.org for details.
+│   ├── docs           <- Docs .md files.
+|   ├── mkdocs.yml     <- Configuration file MkDocs.
+|   └── README-DOCS.md <- README MkDocs use.
 |
 ├── logs               <- Logs
 |
@@ -93,9 +95,7 @@
 |    ├─ weights        <- Trained model file format yolov8n-obb.pt
 │    └─ classes.txt    <- Classes for models
 |
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
+├── notebooks          <- Jupyter notebooks
 │
 ├── pyproject.toml     <- Project configuration file with package metadata for project
 │                         and configuration for tools like black

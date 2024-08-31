@@ -1,10 +1,10 @@
 # Advanced Video Processing Application
-
-
+_______________________________________
 - Author: `Oleg Shamaev`
+- email `MlOpsEngineer@yandex.ru`
 - GUI Framework: `PyQt6`
 - Processing `Framework: Ultralytics`
-
+_______________________________________
 
 ## DESCRIPTION:
 
@@ -118,12 +118,11 @@
 |
 ├── logs               <- Logs
 |
-├── models             <- Classes and models
-|    └──weights        <- Trained and serialized models, model predictions, or model summaries
-│
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
+├── models             
+|    ├─ weights        <- Trained model file format yolov8n-obb.pt
+│    └─ classes.txt    <- Classes for models
+|
+├── notebooks          <- Jupyter notebooks.
 │
 ├── pyproject.toml     <- Project configuration file with package metadata for project
 │                         and configuration for tools like black
