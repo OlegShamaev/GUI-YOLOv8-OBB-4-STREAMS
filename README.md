@@ -1,9 +1,9 @@
 # Advanced Video Processing Application
-=======================================
-
+_______________________________________
 - Author: `Oleg Shamaev`
 - GUI Framework: `PyQt6`
 - Processing `Framework: Ultralytics`
+_______________________________________
 
 ### Description in Russian [docs/docs/rus.md](docs/docs/rus.md)
 ### Installation and Configuration Guide [docs/docs/getting-started.md](docs/docs/getting-started.md)
