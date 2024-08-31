@@ -1,6 +1,7 @@
 # Advanced Video Processing Application
 _______________________________________
 - Author: `Oleg Shamaev`
+- email `MlOpsEngineer@yandex.ru`
 - GUI Framework: `PyQt6`
 - Processing `Framework: Ultralytics`
 _______________________________________
