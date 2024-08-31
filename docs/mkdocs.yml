@@ -10,7 +10,7 @@ theme:
 nav:
   - Home: index.md 
   - Getting Started: getting-started.md
-  - Russian: russian.md
+  - Russian: rus.md
 
 
 # Путь к директории с документацией
