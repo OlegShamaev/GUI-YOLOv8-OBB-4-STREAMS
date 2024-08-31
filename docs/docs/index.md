@@ -35,7 +35,6 @@ _______________________________________
         <ul>
             <li>☑️ local files: images or videos</li>
             <li>☑️ Camera</li>
-            <li>☑️ RTSP-Stream</li>
         </ul>
         <li>Supported Models:</li>
         <ul>
