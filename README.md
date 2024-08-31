@@ -42,6 +42,7 @@ _______________________________________
             - Supported Input Sources:
                 - [x] local files: images or videos
                 - [x] Camera
+                - [x] RTSP-Stream
 
             - Supported Models:
                 - [x] YOLOv8n
