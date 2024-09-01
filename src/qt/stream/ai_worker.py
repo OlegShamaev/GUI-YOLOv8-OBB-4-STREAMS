@@ -83,6 +83,7 @@ class AiWorkerThread(QThread):
 
             self.mutex.lock()
             while self.paused:
+                self.send_ai_output.emit([])
                 self.condition.wait(self.mutex)
             self.mutex.unlock()
 
