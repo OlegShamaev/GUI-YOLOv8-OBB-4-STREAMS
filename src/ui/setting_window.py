@@ -243,27 +243,23 @@ class SettingWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.buttons_states("processing")
 
     def stop_video(self):        
-        self.cancel_area()
-        
+        self.cancel_area()        
         if self.ai_thread.isRunning():
             self.ai_thread.send_ai_output.disconnect(self.display_thread.get_ai_output)
             self.ai_thread.stop_process()
+            self.ai_thread.quit()
+            self.ai_thread.wait()
         if self.display_thread.isRunning():
             self.display_thread.send_displayable_frame.disconnect(self.update_display_frame)
             self.display_thread.stop_display()
+            self.display_thread.quit()
+            self.display_thread.wait()
         if self.video_processing_thread.isRunning():
             self.video_processing_thread.send_frame.disconnect(self.display_thread.get_fresh_frame)
             self.video_processing_thread.stop_capture()
-            
-        self.clean_table()
-        
-        self.ai_thread.quit()
-        self.ai_thread.wait()
-        self.display_thread.quit()
-        self.display_thread.wait()
-        self.video_processing_thread.quit()
-        self.video_processing_thread.wait()
-        
+            self.video_processing_thread.quit()
+            self.video_processing_thread.wait()
+        self.clean_table()        
         self.label_display.clear()
         self.buttons_states("waiting_for_setting")
 
@@ -391,7 +387,6 @@ class SettingWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def reset_settings(self):
         self.source_in = None
         self.source_value = None
-        self.label_display.reset_rect_to_original()
         self.stop_video()
 
     def apply_changes(self):
@@ -420,11 +415,11 @@ class SettingWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # Сброс настроек к начальному состоянию
         self.reset_settings()
 
+        self.settings_signal.emit(self.comboBox_tabs.currentIndex())
         # Переход на выбранную вкладку
         if self.main_window:
             self.main_window.tab_widget.setCurrentIndex(tab_index + 1)
 
-        self.settings_signal.emit(self.comboBox_tabs.currentIndex())
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
