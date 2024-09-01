@@ -244,11 +244,18 @@ class SettingWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def stop_video(self):
         if self.ai_thread.isRunning():
+            self.ai_thread.send_ai_output.disconnect(self.display_thread.get_ai_output)
             self.ai_thread.stop_process()
-        if self.video_processing_thread.isRunning():
-            self.video_processing_thread.stop_capture()
         if self.display_thread.isRunning():
+            self.display_thread.send_displayable_frame.disconnect(self.update_display_frame)
             self.display_thread.stop_display()
+        if self.video_processing_thread.isRunning():
+            self.video_processing_thread.send_frame.disconnect(self.display_thread.get_fresh_frame)
+            self.video_processing_thread.stop_capture()
+        self.ai_thread.quit()
+        self.display_thread.quit()
+        self.video_processing_thread.quit()
+        
         self.label_display.clear()
         self.buttons_states("waiting_for_setting")
 
@@ -373,11 +380,17 @@ class SettingWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         return file_name
 
+    def init_process(self):
+        self.ai_thread.__init__()
+        self.display_thread.__init__()
+        self.video_processing_thread.__init__()
+    
     def reset_settings(self):
         self.source_in = None
         self.source_value = None
         self.label_display.reset_rect_to_original()
         self.stop_video()
+        self.init_process()
 
     def apply_changes(self):
         # Проверка выбора вкладки

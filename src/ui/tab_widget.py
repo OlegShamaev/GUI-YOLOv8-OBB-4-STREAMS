@@ -67,8 +67,14 @@ class TabWindow(QtWidgets.QMainWindow, Ui_TabWindow):
     def update_tab_out(self, tab_out):
         self.tab_index = tab_out
         self.get_config()
+        self.init_process()
         self.start_process()
 
+    def init_process(self):
+        self.ai_thread.__init__()
+        self.display_thread.__init__()
+        self.video_processing_thread.__init__()
+    
     def showEvent(self, event: QEvent):
         super(TabWindow, self).showEvent(event)
         if not event.spontaneous() and not self.display_thread.isRunning():
@@ -89,10 +95,10 @@ class TabWindow(QtWidgets.QMainWindow, Ui_TabWindow):
         if self.video_processing_thread.isRunning():
             self.video_processing_thread.send_frame.disconnect(self.display_thread.get_fresh_frame)
             self.video_processing_thread.stop_capture()
-
-        self.ai_thread.wait()
-        self.display_thread.wait()
-        self.video_processing_thread.wait()
+        self.ai_thread.quit()
+        self.display_thread.quit()
+        self.video_processing_thread.quit()
+        self.label_display.clear()
 
     def update_display_frame(self, showImage):
         self.label_display.setPixmap(QtGui.QPixmap.fromImage(showImage))

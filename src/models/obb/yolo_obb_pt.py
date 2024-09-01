@@ -77,6 +77,7 @@ class YoloObbPT(YoloPredictorBase):
             conf=confi_thres,
             iou=iou_thres,
             verbose=False,
+            save=False
         )
 
         if model_output[0].obb.conf is not None and model_output[0].obb.conf.numel() > 0:

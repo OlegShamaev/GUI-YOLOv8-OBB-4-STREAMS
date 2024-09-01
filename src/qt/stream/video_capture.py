@@ -61,7 +61,7 @@ class VideoProcessingThread(QThread):
         try:
             cap = cv.VideoCapture(self.video_source)
             if not cap.isOpened():
-                raise IOError("Couldn't open video file")
+                raise IOError("Couldn't open stream")
 
             video_info, fileFlag = self.get_video_info(cap)
             self.send_video_info.emit(video_info)
