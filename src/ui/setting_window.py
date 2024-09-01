@@ -256,6 +256,8 @@ class SettingWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.display_thread.quit()
         self.video_processing_thread.quit()
         
+        self.clean_table()
+        self.cancel_area()
         self.label_display.clear()
         self.buttons_states("waiting_for_setting")
 
@@ -384,6 +386,7 @@ class SettingWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ai_thread.__init__()
         self.display_thread.__init__()
         self.video_processing_thread.__init__()
+        self.label_display.__init__()
     
     def reset_settings(self):
         self.source_in = None
