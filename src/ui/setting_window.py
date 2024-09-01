@@ -242,7 +242,9 @@ class SettingWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             self.buttons_states("processing")
 
-    def stop_video(self):
+    def stop_video(self):        
+        self.cancel_area()
+        
         if self.ai_thread.isRunning():
             self.ai_thread.send_ai_output.disconnect(self.display_thread.get_ai_output)
             self.ai_thread.stop_process()
@@ -252,12 +254,16 @@ class SettingWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.video_processing_thread.isRunning():
             self.video_processing_thread.send_frame.disconnect(self.display_thread.get_fresh_frame)
             self.video_processing_thread.stop_capture()
-        self.ai_thread.quit()
-        self.display_thread.quit()
-        self.video_processing_thread.quit()
-        
+            
         self.clean_table()
-        self.cancel_area()
+        
+        self.ai_thread.quit()
+        self.ai_thread.wait()
+        self.display_thread.quit()
+        self.display_thread.wait()
+        self.video_processing_thread.quit()
+        self.video_processing_thread.wait()
+        
         self.label_display.clear()
         self.buttons_states("waiting_for_setting")
 
@@ -381,19 +387,12 @@ class SettingWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             return None
 
         return file_name
-
-    def init_process(self):
-        self.ai_thread.__init__()
-        self.display_thread.__init__()
-        self.video_processing_thread.__init__()
-        self.label_display.__init__()
     
     def reset_settings(self):
         self.source_in = None
         self.source_value = None
         self.label_display.reset_rect_to_original()
         self.stop_video()
-        self.init_process()
 
     def apply_changes(self):
         # Проверка выбора вкладки
@@ -416,17 +415,16 @@ class SettingWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         config.to_json()
 
-        self.settings_signal.emit(self.comboBox_tabs.currentIndex())
+        QtWidgets.QMessageBox.information(self, "Сохранение", "Настройки успешно сохранены.")
 
         # Сброс настроек к начальному состоянию
         self.reset_settings()
-
-        QtWidgets.QMessageBox.information(self, "Сохранение", "Настройки успешно сохранены.")
 
         # Переход на выбранную вкладку
         if self.main_window:
             self.main_window.tab_widget.setCurrentIndex(tab_index + 1)
 
+        self.settings_signal.emit(self.comboBox_tabs.currentIndex())
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

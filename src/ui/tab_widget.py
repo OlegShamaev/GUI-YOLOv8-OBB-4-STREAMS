@@ -20,6 +20,7 @@ class TabWindow(QtWidgets.QMainWindow, Ui_TabWindow):
         super(TabWindow, self).__init__(parent)
         self.setupUi(self)
         self.tab_index = tab_index
+        self.runningFlag = False
         self.ai_thread = AiWorkerThread(tab_index=self.tab_index)
         self.display_thread = VideoVisualizationThread(db=db)
         self.video_processing_thread = VideoProcessingThread()
@@ -54,13 +55,14 @@ class TabWindow(QtWidgets.QMainWindow, Ui_TabWindow):
             self.video_processing_thread.send_frame.connect(self.ai_thread.get_frame)
             self.ai_thread.send_ai_output.connect(self.display_thread.get_ai_output)
             self.display_thread.send_displayable_frame.connect(self.update_display_frame)
+            self.display_thread.send_displayable_frame.connect(self.on_frame_ready)
 
             self.ai_thread.start()
             self.display_thread.start()
             self.video_processing_thread.start()
 
-            self.display_thread.send_displayable_frame.connect(self.on_frame_ready)
-
+            self.runningFlag = True
+            
     def on_frame_ready(self, image: QImage):
         self.frame_ready.emit(image)
 
@@ -86,18 +88,23 @@ class TabWindow(QtWidgets.QMainWindow, Ui_TabWindow):
         QtWidgets.QMainWindow.resizeEvent(self, event)
 
     def stop_video(self):
+        if not self.runningFlag:
+            return
         if self.ai_thread.isRunning():
             self.ai_thread.send_ai_output.disconnect(self.display_thread.get_ai_output)
             self.ai_thread.stop_process()
+            self.ai_thread.quit()
+            self.ai_thread.wait()
         if self.display_thread.isRunning():
             self.display_thread.send_displayable_frame.disconnect(self.update_display_frame)
             self.display_thread.stop_display()
+            self.display_thread.quit()
+            self.display_thread.wait()
         if self.video_processing_thread.isRunning():
             self.video_processing_thread.send_frame.disconnect(self.display_thread.get_fresh_frame)
             self.video_processing_thread.stop_capture()
-        self.ai_thread.quit()
-        self.display_thread.quit()
-        self.video_processing_thread.quit()
+            self.video_processing_thread.quit()
+            self.video_processing_thread.wait()
         self.label_display.clear()
 
     def update_display_frame(self, showImage):
