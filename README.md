@@ -14,7 +14,10 @@ _______________________________________
 
 - This is a powerful and flexible application developed using PyQt6, designed for real-time processing of 4 video streams using the YOLOv8-OBB model.
 
-- The application supports video processing from cameras, video files, and YouTube streams, providing highly efficient object detection and result saving.
+- The application renders detection results directly onto the original video stream, ensuring that even on low-end systems, the video stream remains smooth and free of stuttering. This approach minimizes the processing overhead typically associated with real-time video analysis, allowing for efficient performance without compromising the fluidity of the video. By optimizing the rendering process, the application delivers a seamless viewing experience, maintaining consistent frame rates even under limited hardware resources.
+
+
+- The application supports video processing from cameras and video files providing highly efficient object detection and result saving.
 
 - It is aimed at users who require accurate and fast video data processing for analytics and monitoring.
 
