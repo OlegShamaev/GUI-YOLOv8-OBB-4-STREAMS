@@ -12,6 +12,7 @@ _______________________________________
 
 - The application renders detection results directly onto the original video stream, ensuring that even on low-end systems, the video stream remains smooth and free of stuttering. This approach minimizes the processing overhead typically associated with real-time video analysis, allowing for efficient performance without compromising the fluidity of the video. By optimizing the rendering process, the application delivers a seamless viewing experience, maintaining consistent frame rates even under limited hardware resources.
 
+- You can select a detection area and choose to detect either inside or outside of it, effectively excluding certain regions from detection. This can be managed through the `Display Area` menu with the `IN` and `OUT` options.
 
 - The application supports video processing from cameras and video files providing highly efficient object detection and result saving.
 
@@ -31,8 +32,19 @@ _______________________________________
     - Multi-Camera Processing:
         - The application provides 6 tabs.
         - The first tab displays all cameras simultaneously (`All Camera`)
+
+        <ul>
+        <li>AiWorkers:</li>
+        <ul>
+            <li>☑️ Cam1 AllCamera</li>
+            <li>☑️ Cam2 AllCamera</li>
+            <li>☑️ Cam3 AllCamera</li>
+            <li>☑️ Cam4 AllCamera</li>
+        </ul>
+        </ul>
         - The next four tabs are designed for working with each camera individually.        
         - The last tab is used for parameter `settings`.
+
         <ul>
         <li>Supported Input Sources:</li>
         <ul>
@@ -47,6 +59,11 @@ _______________________________________
             <li>☑️ YOLOv8m</li>
             <li>☑️ YOLOv8l</li>
             <li>☑️ YOLOv8x</li>
+        </ul>
+        <li>Display Areas:</li>
+        <ul>
+            <li>☑️ IN</li>
+            <li>☑️ OUT</li>
         </ul>
         </ul>
 

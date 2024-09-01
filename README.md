@@ -16,6 +16,7 @@ _______________________________________
 
 - The application renders detection results directly onto the original video stream, ensuring that even on low-end systems, the video stream remains smooth and free of stuttering. This approach minimizes the processing overhead typically associated with real-time video analysis, allowing for efficient performance without compromising the fluidity of the video. By optimizing the rendering process, the application delivers a seamless viewing experience, maintaining consistent frame rates even under limited hardware resources.
 
+- You can select a detection area and choose to detect either inside or outside of it, effectively excluding certain regions from detection. This can be managed through the `Display Area` menu with the `IN` and `OUT` options.
 
 - The application supports video processing from cameras and video files providing highly efficient object detection and result saving.
 
@@ -40,6 +41,12 @@ _______________________________________
     - Multi-Camera Processing:
         - The application provides 6 tabs.
         - The first tab displays all cameras simultaneously (`All Camera`)
+            - AiWorkers:
+                - [x] Cam1 AllCamera
+                - [x] Cam2 AllCamera
+                - [x] Cam3 AllCamera
+                - [x] Cam4 AllCamera
+
         - The next four tabs are designed for working with each camera individually.        
         - The last tab is used for parameter `settings`.
             - Supported Input Sources:
@@ -54,10 +61,14 @@ _______________________________________
                 - [x] YOLOv8l
                 - [x] YOLOv8x
 
+            - Display Area:
+                - [x] IN
+                - [x] OUT
+
     - Load Optimization:
         - Video processing is only performed on the active tab, reducing system load.
-        - On the `All Cameras` tab, all cameras are processed simultaneously.
-        - On the Settings tab, processing of all cameras is paused.
+        - On the` All Cameras` tab, all cameras are processed simultaneously. However, in the `AiWorkers` menu, you can pause the processing of any of the cameras.
+        - On the `Settings tab`, processing of all cameras is paused.
         - The video processing is only performed on the currently selected camera tab.
 
     - Session Saving:
