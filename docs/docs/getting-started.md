@@ -9,6 +9,8 @@ The model names must be **`yolov8n-obb.pt` `yolov8s-obb.pt` `yolov8m-obb.pt` `yo
 
 The `classes.txt` files are saved in the  **models/**  folder.
 
+Download `Ultralytics` pre-trained models script **download_weights.py** (terminal selection dialog)
+
 ## Configuration file
 backup file in the folder `backup/config.json`
 
@@ -48,6 +50,13 @@ make create_venv
 
 ```shell
 make requirements
+```
+
+### Ultralytics models 
+- Downloads Ultralytics pre-trained models
+
+```shell
+make get_models
 ```
 
 ### Start

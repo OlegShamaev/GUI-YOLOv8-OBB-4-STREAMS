@@ -42,6 +42,15 @@ format:
 	black --config pyproject.toml vtormet_cv
 
 
+#################################################################################
+# Dowloads                                                                        #
+#################################################################################
+
+## Dowloads ultralytic pre-trained models
+.PHONY: get_models
+get_models:
+	$(PYTHON_INTERPRETER) download_weights.py
+
 
 #################################################################################
 # Run                                                                          #

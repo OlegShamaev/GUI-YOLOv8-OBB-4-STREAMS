@@ -163,6 +163,8 @@ s
 
 Файлы `classes.txt` сохраняются в папке  **models/** .
 
+Скачать Ultralytics pre-trained models скрипт download_weights.py (диалог выбора в терминале)
+
 ## Configuration file
 Резервная копия файла находится в папке  `backup/config.json`
 
@@ -202,6 +204,13 @@ make create_venv
 
 ```shell
 make requirements
+```
+
+### Ultralytics models 
+- Скачать Ultralytics pre-trained models
+
+```shell
+make get_models
 ```
 
 ### Start
